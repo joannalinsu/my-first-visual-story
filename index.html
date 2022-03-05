@@ -5,7 +5,8 @@
 {% endblock styles -%}
 
 {% block scripts -%}
-{% script 'app' %}
+<!-- adding the app.js -->
+{% script 'app' %}  
 {% endblock scripts -%}
 
 {% extends '_layouts/base.html' %}
@@ -16,8 +17,12 @@
   <time datetime="2022-03-05" pubdate>Mar. 5, 2022</time>
 {% endblock %}
 {% block content %}
+<!-- map section -->
+<div id="map"></div>
+
+<!-- chart section -->
 <section>
-  <h3>A South L.A. neighborhood stands apart</h3>
+  <h3>One corner. Four killings</h3>
   <p>
     Harvard Park's 2016 homicide total was its highest in at least 15 years
     despite a downward trend in killings across L.A. County.
@@ -34,9 +39,10 @@
   </div>
 </section>
 
+<!-- gallery section -->
 <section>
   <h3>Lives lost in Harvard Park</h3>
-  <p>The {{ harvard_park_homicides|length }} homicides in Harvard Park since 2000 were primarily black and Latino males, but the list includes husbands, wives, fathers, mothers of all ages, and even some small children.</p>
+  <p>The {{ harvard_park_homicides|length }} homicides in Harvard Park since 2000 were primarily black and Latino males. The list includes husbands,fathers, and wives, mothers of all ages, and even some small children.</p>
   <div class="row" data-masonry='{"percentPosition": true }'>
       {% for obj in harvard_park_homicides %}
       <div class="col-sm-6 col-lg-4 mb-4">
